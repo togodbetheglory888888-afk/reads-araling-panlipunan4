@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AP IV Quarter 4 Interactive Game with Voice</title>
+<style>
+body { font-family: Arial; margin: 0; padding: 0; background: #e6f2ff; }
+.center-screen {
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  height: 100vh; text-align: center;
+}
+h1 { font-size: 60px; color: #0066cc; margin-bottom: 40px; }
+button.play-now {
+  background-color: #0066cc; color: white; font-size: 28px; padding: 20px 60px;
+  border: none; border-radius: 10px; cursor: pointer;
+}
+button { margin: 5px 5px 15px 0; padding: 12px 25px; font-size: 20px; cursor: pointer; }
+.week-content { padding: 20px; max-width: 900px; margin: auto; }
+h2 { color: #0066cc; font-size: 28px; margin-top: 40px; }
+h3 { font-size: 24px; }
+p.story { text-align: justify; font-size: 20px; line-height: 1.6; background-color: #cce0ff; padding: 15px; border-radius: 8px; }
+.feedback { font-weight: bold; margin-bottom: 20px; font-size: 20px; }
+.score { font-weight: bold; font-size: 22px; margin: 20px 0; }
+.week { display: none; }
+</style>
+</head>
+<body>
+
+<!-- START SCREEN -->
+<div id="startScreen" class="center-screen">
+  <h1>Araling Panlipunan IV - Quarter 4</h1>
+  <button class="play-now" onclick="startGame()">Simulan</button>
+</div>
+
+<div id="gameContent" class="week-content" style="display:none;">
+
+  <!-- WEEK 1: Pagkakakilanlan ng Pilipino -->
+  <div class="week" id="week1">
+    <h2>Week 1: Ang Pagkakakilanlan ng Pilipino</h2>
+    <p class="story">
+      Ang sagisag ng pagkakakilanlan Pilipino ay sumasagisag sa ating bansa, kultura, at kasaysayan. Kabilang sa mga sagisag ang Watawat ng Pilipinas, Pambansang Awit (Lupang Hinirang), Pambansang Ibon (Maya), at Pambansang Bulaklak (Sampaguita). Ang mga ito ay nagpapaalala ng ating kalayaan, pagkakaisa, katapangan, at pagmamahal sa bansa.
+    </p>
+
+    <h3>1. Bakit importante ang pag-aalaga sa watawat ng Pilipinas?</h3>
+    <button onclick="checkAnswerAP(1,'A')">A) Para sa kalayaan ng bansa</button>
+    <button onclick="checkAnswerAP(1,'B')">B) Para sa pagkakaisa ng bansa</button>
+    <button onclick="checkAnswerAP(1,'C')">C) Para sa pagmamahal sa bansa</button>
+    <button onclick="checkAnswerAP(1,'D')">D) Para sa pagpapakita ng kapangyarihan</button>
+    <p class="feedback" id="feedbackAP1"></p>
+
+    <h3>2. Anong maaaring mangyari kung hindi natin ipagdiriwang ang Araw ng Kalayaan?</h3>
+    <button onclick="checkAnswerAP(2,'A')">A) Pagkakaisa ng bansa ay mapapanatili</button>
+    <button onclick="checkAnswerAP(2,'B')">B) Pagkakaisa ng bansa ay mawawala</button>
+    <button onclick="checkAnswerAP(2,'C')">C) Kalayaan ay mapapalakas</button>
+    <button onclick="checkAnswerAP(2,'D')">D) Wala mang mangyayari</button>
+    <p class="feedback" id="feedbackAP2"></p>
+
+    <h3>3. Paano maaaring makatulong ang pambansang ibon sa pagpapalakas ng pagkakakilanlan Pilipino?</h3>
+    <button onclick="checkAnswerAP(3,'A')">A) Sa pamamagitan ng pagpapakita ng katapangan</button>
+    <button onclick="checkAnswerAP(3,'B')">B) Sa pamamagitan ng pagpapakita ng kalayaan</button>
+    <button onclick="checkAnswerAP(3,'C')">C) Sa pamamagitan ng pagpapakita ng pagmamahal sa bansa</button>
+    <button onclick="checkAnswerAP(3,'D')">D) Sa pamamagitan ng pagpapakita ng kapangyarihan</button>
+    <p class="feedback" id="feedbackAP3"></p>
+
+    <h3>4. Anong maaaring mangyari kung hindi natin ipagdiriwang ang Buwan ng Wika?</h3>
+    <button onclick="checkAnswerAP(4,'A')">A) Pagkakaisa ng bansa ay mapapanatili</button>
+    <button onclick="checkAnswerAP(4,'B')">B) Pagkakaisa ng bansa ay mawawala</button>
+    <button onclick="checkAnswerAP(4,'C')">C) Pagmamahal sa wika ay mapapalakas</button>
+    <button onclick="checkAnswerAP(4,'D')">D) Wala mang mangyayari</button>
+    <p class="feedback" id="feedbackAP4"></p>
+
+    <h3>5. Paano maaaring makatulong ang pambansang ibon sa pagpapalakas ng pagkakakilanlan Pilipino?</h3>
+    <button onclick="checkAnswerAP(5,'A')">A) Sa pamamagitan ng pagpapakita ng katapangan</button>
+    <button onclick="checkAnswerAP(5,'B')">B) Sa pamamagitan ng pagpapakita ng kalayaan</button>
+    <button onclick="checkAnswerAP(5,'C')">C) Sa pamamagitan ng pagpapakita ng pagmamahal sa bansa</button>
+    <button onclick="checkAnswerAP(5,'D')">D) Sa pamamagitan ng pagpapakita ng kapangyarihan</button>
+    <p class="feedback" id="feedbackAP5"></p>
+
+    <button onclick="nextWeekAP(2)">Tuloy sa Week 2</button>
+  </div>
+
+  <!-- WEEK 2: Produktibong Mamamayan -->
+  <div class="week" id="week2">
+    <h2>Week 2: Ang Produktibong Mamamayan ni Mang Juan</h2>
+    <p class="story">
+      Si Mang Juan ay isang magsasaka sa isang malayong barrio. Kilala siya sa kanyang katapangan, pagiging masipag, pagmamahal sa bansa, at pagiging mapagbigay. Nagtatanim siya ng gulay at prutas at nagbibigay ng libreng mga ito sa kanyang mga kapitbahay. Ang mga katangian niya ay nagiging halimbawa sa kanyang komunidad.
+    </p>
+
+    <h3>1. Anong maaaring mangyari kung hindi nagtatanim si Mang Juan ng mga gulay at prutas?</h3>
+    <button onclick="checkAnswerAP(6,'A')">A) Pag-unlad ng ekonomiya ng barrio</button>
+    <button onclick="checkAnswerAP(6,'B')">B) Pagbaba ng produksyon ng pagkain</button>
+    <button onclick="checkAnswerAP(6,'C')">C) Walang pagbabago sa ekonomiya ng barrio</button>
+    <button onclick="checkAnswerAP(6,'D')">D) Pagtaas ng presyo ng pagkain</button>
+    <p class="feedback" id="feedbackAP6"></p>
+
+    <h3>2. Bakit importante ang pagiging masipag sa pagiging produktibong mamamayan?</h3>
+    <button onclick="checkAnswerAP(7,'A')">A) Para sa pagpapabuti ng ekonomiya</button>
+    <button onclick="checkAnswerAP(7,'B')">B) Para sa pagpapakita ng kapangyarihan</button>
+    <button onclick="checkAnswerAP(7,'C')">C) Para sa pagpapakita ng pagmamahal sa bansa</button>
+    <button onclick="checkAnswerAP(7,'D')">D) Para sa pagpapabuti ng kalusugan</button>
+    <p class="feedback" id="feedbackAP7"></p>
+
+    <h3>3. Anong epekto ng pagmamahal sa bansa ni Mang Juan sa kanyang komunidad?</h3>
+    <button onclick="checkAnswerAP(8,'A')">A) Pagkakaroon ng pagkakaisa</button>
+    <button onclick="checkAnswerAP(8,'B')">B) Pagkakaroon ng pagbabago sa politika</button>
+    <button onclick="checkAnswerAP(8,'C')">C) Pagkakaroon ng pag-unlad ng ekonomiya</button>
+    <button onclick="checkAnswerAP(8,'D')">D) Pagkakaroon ng pagkakawatak-watak</button>
+    <p class="feedback" id="feedbackAP8"></p>
+
+    <h3>4. Paano maaaring makatulong ang pagiging mapagbigay ni Mang Juan sa kanyang komunidad?</h3>
+    <button onclick="checkAnswerAP(9,'A')">A) Sa pamamagitan ng pagpapabuti ng ekonomiya</button>
+    <button onclick="checkAnswerAP(9,'B')">B) Sa pamamagitan ng pagpapabuti ng kalusugan</button>
+    <button onclick="checkAnswerAP(9,'C')">C) Sa pamamagitan ng pagpapabuti ng edukasyon</button>
+    <button onclick="checkAnswerAP(9,'D')">D) Sa pamamagitan ng pagpapakita ng kapangyarihan</button>
+    <p class="feedback" id="feedbackAP9"></p>
+
+    <h3>5. Anong maaaring mangyari kung maraming mamamayan ang magbibigay ng kontribusyon sa kanilang komunidad?</h3>
+    <button onclick="checkAnswerAP(10,'A')">A) Pag-unlad ng bansa</button>
+    <button onclick="checkAnswerAP(10,'B')">B) Pagbaba ng kalidad ng buhay</button>
+    <button onclick="checkAnswerAP(10,'C')">C) Walang pagbabago sa bansa</button>
+    <button onclick="checkAnswerAP(10,'D')">D) Pagtaas ng bilang ng mga mamamayan na nagbibigay ng kontribusyon</button>
+    <p class="feedback" id="feedbackAP10"></p>
+
+    <div class="score" id="scoreAP" style="display:none;"></div>
+    <button onclick="calculateScoreAP()">Tingnan ang Score</button>
+  </div>
+
+</div>
+
+<script>
+function startGame(){
+  document.getElementById('startScreen').style.display='none';
+  document.getElementById('gameContent').style.display='block';
+  showWeekAP(1);
+}
+function nextWeekAP(week){
+  showWeekAP(week);
+}
+function showWeekAP(week){
+  const weeks = document.querySelectorAll('.week');
+  weeks.forEach(w=>w.style.display='none');
+  document.getElementById('week'+week).style.display='block';
+}
+
+// Answers for AP
+const answersAP = {
+  1:'C',2:'B',3:'C',4:'B',5:'C',
+  6:'B',7:'A',8:'A',9:'A',10:'A'
+};
+
+// Voice-over function
+function speak(text){
+  if('speechSynthesis' in window){
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    msg.lang = 'fil-PH'; // Filipino voice
+    window.speechSynthesis.speak(msg);
+  }
+}
+
+function checkAnswerAP(qNum, choice){
+  const fb=document.getElementById('feedbackAP'+qNum);
+  if(choice===answersAP[qNum]){
+    fb.textContent='✅ Tama!';
+    fb.style.color='green';
+    speak('Tama! Magaling!');
+  } else {
+    fb.textContent='❌ Subukang muli!';
+    fb.style.color='red';
+    speak('Mali. Subukang muli!');
+  }
+}
+
+function calculateScoreAP(){
+  let score=0;
+  for(let i=1;i<=10;i++){
+    const fb=document.getElementById('feedbackAP'+i).textContent;
+    if(fb.includes('Tama')) score++;
+  }
+  const scoreText = `Nakuha mo ang ${score} sa 10 tamang sagot!`;
+  document.getElementById('scoreAP').textContent=scoreText;
+  document.getElementById('scoreAP').style.display='block';
+  speak(scoreText);
+}
+</script>
+
+</body>
+</html>
